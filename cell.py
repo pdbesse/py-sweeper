@@ -28,6 +28,28 @@ class Cell:
     def left_click_actions(self, event):
         if self.is_mine:
             self.show_mine()
+        else:
+            self.show_cell()
+
+    def get_cell_by_axis(self, x, y):
+        # return cell object based on values of x and y
+        for cell in Cell.all:
+            if cell.x == x and cell.y == y:
+                return cell
+
+    def show_cell(self):
+        surrounded_cells = [
+            self.get_cell_by_axis(self.x - 1, self.y - 1),
+            self.get_cell_by_axis(self.x - 1, self.y),
+            self.get_cell_by_axis(self.x - 1, self.y + 1),
+            self.get_cell_by_axis(self.x, self.y - 1),
+            self.get_cell_by_axis(self.x + 1, self.y - 1),
+            self.get_cell_by_axis(self.x + 1, self.y),
+            self.get_cell_by_axis(self.x + 1, self.y + 1),
+            self.get_cell_by_axis(self.x, self.y +1)
+        ]
+        
+        surrounded_cells = [cell for cell in surrounded_cells if cell is not None]
 
     def show_mine(self):
         self.cell_btn_object.configure(bg='red')
