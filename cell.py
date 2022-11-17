@@ -63,7 +63,7 @@ class Cell:
         return counter
 
     def show_cell(self):
-        print(self.surrounded_cells_mines_length)
+        self.cell_btn_object.configure(text=self.surrounded_cells_mines_length)
 
     def show_mine(self):
         self.cell_btn_object.configure(bg='red')
