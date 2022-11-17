@@ -1,10 +1,10 @@
 from tkinter import *
-
+import settings
 
 root = Tk()
 # override the settings of the window
 root.configure(bg='black')
-root.geometry('1440x720')
+root.geometry(f'{settings.ROOTWIDTH}x{settings.ROOTHEIGHT}')
 root.title('Py-Sweeper')
 root.resizable(False, False)
 
