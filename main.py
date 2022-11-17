@@ -1,7 +1,20 @@
 from tkinter import *
 
+
 root = Tk()
-root.geometry('800x800')
+# override the settings of the window
+root.configure(bg='black')
+root.geometry('1440x720')
 root.title('Py-Sweeper')
 root.resizable(False, False)
+
+top_frame = Frame(
+    root,
+    bg='red', # change later to black
+    width=1440, 
+    height=180
+)
+top_frame.place(0,0)
+
+#run the rundow
 root.mainloop()
