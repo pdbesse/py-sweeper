@@ -5,7 +5,9 @@ import defs
 
 class Cell:
     all = []
+    cell_count = defs.CELL_COUNT
     cell_count_label_object = None
+
     def __init__(self, x, y, is_mine=False):
         self.is_mine = is_mine
         self.cell_btn_object = None
@@ -31,7 +33,7 @@ class Cell:
             location,
             bg='black',
             fg='white',
-            text=f'Cells Left:{defs.CELL_COUNT}',
+            text=f'Cells Left:{Cell.cell_count}',
             font=('', 30)
         )
         Cell.cell_count_label_object = lbl
@@ -73,13 +75,20 @@ class Cell:
         for cell in self.surrounded_cells:
             if cell.is_mine:
                 counter += 1
-        
+
         return counter
 
     def show_cell(self):
+        Cell.cell_count -= 1
         self.cell_btn_object.configure(text=self.surrounded_cells_mines_length)
+        # Replace text of cell count label with the newer count
+        if Cell.cell_count_label_object:
+            Cell.cell_count_label_object.configure(
+                text=f'Cells Left:{Cell.cell_count}'
+            )
 
     def show_mine(self):
+        # Interrupt the game and display a message that the player lost
         self.cell_btn_object.configure(bg='red')
 
     def right_click_actions(self, event):
