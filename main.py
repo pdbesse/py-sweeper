@@ -52,5 +52,7 @@ for x in range(defs.GRID_SIZE):
             column=x, row=y
         )
 
+Cell.randomize_mines()
+
 #run the rundow
 root.mainloop()
