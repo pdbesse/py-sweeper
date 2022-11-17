@@ -1,9 +1,11 @@
 from tkinter import Button
 import random
 
+
 class Cell:
     all = []
-    def __init__(self, x, y, is_mine=False): 
+
+    def __init__(self, x, y, is_mine=False):
         self.is_mine = is_mine
         self.cell_btn_object = None
         self.x = x
@@ -12,7 +14,6 @@ class Cell:
         # Append the object to th Cell.all list
         Cell.all.append(self)
 
-
     def create_btn_object(self, location):
         btn = Button(
             location,
@@ -20,8 +21,8 @@ class Cell:
             height=4,
             text=f'{self.x}, {self.y}'
         )
-        btn.bind('<Button-1>', self.left_click_actions) # left click
-        btn.bind('<Button-3>', self.right_click_actions) # right click
+        btn.bind('<Button-1>', self.left_click_actions)  # left click
+        btn.bind('<Button-3>', self.right_click_actions)  # right click
         self.cell_btn_object = btn
 
     def left_click_actions(self, event):
@@ -33,8 +34,14 @@ class Cell:
         print('I am right clicked!')
 
     @staticmethod
-    def randomize_mines(): 
-        pass 
+    def randomize_mines():
+        picked_cells = random.sample(
+            Cell.all,
+            9
+        )
+        print(picked_cells)
+        for picked_cell in picked_cells:
+            picked_cell.is_mine = True
 
     def __repr__(self):
         return f'Cell({self.x}, {self.y})'

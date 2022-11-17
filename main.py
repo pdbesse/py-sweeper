@@ -53,6 +53,8 @@ for x in range(defs.GRID_SIZE):
         )
 
 Cell.randomize_mines()
+for c in Cell.all:
+    print(c.is_mine)
 
 #run the rundow
 root.mainloop()
