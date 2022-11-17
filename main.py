@@ -1,6 +1,8 @@
 from tkinter import *
+from cell import Cell
 import defs
 import utils
+
 
 root = Tk()
 # override the settings of the window
@@ -11,30 +13,42 @@ root.resizable(False, False)
 
 top_frame = Frame(
     root,
-    bg='red', # change later to black
+    bg='black', # change later to black
     width=defs.WIDTH, 
     height=utils.height_prct(25)
 )
-top_frame.place(x=0,y=0)
+top_frame.place(
+    x=0,
+    y=0
+)
 
 left_frame = Frame(
     root,
-    bg='blue', # change later to black
+    bg='black', # change later to black
     width=utils.width_prct(25),
     height=utils.height_prct(75)
 )
-left_frame.place(x=0, y=utils.height_prct(25))
+left_frame.place(
+    x=0, 
+    y=utils.height_prct(25)
+)
 
 center_frame = Frame(
     root,
-    bg='green', # change later to black
+    bg='black', # change later to black
     width=utils.width_prct(75),
     height=utils.height_prct(75)
 )
-
 center_frame.place(
     x=utils.width_prct(25),
     y=utils.height_prct(25)
+)
+
+c1 = Cell()
+c1.create_btn_object(center_frame)
+c1.cell_btn_object.place(
+    x=0, 
+    y=0
 )
 
 #run the rundow
