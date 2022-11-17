@@ -5,7 +5,7 @@ import defs
 
 class Cell:
     all = []
-
+    cell_count_label_object = None
     def __init__(self, x, y, is_mine=False):
         self.is_mine = is_mine
         self.cell_btn_object = None
@@ -26,12 +26,15 @@ class Cell:
         self.cell_btn_object = btn
 
     @staticmethod
-    def create_cell_count_label(self, location):
+    def create_cell_count_label(location):
         lbl = Label(
             location,
-            text=f'Cells Left:{defs.CELL_COUNT}'
+            bg='black',
+            fg='white',
+            text=f'Cells Left:{defs.CELL_COUNT}',
+            font=('', 30)
         )
-        return lbl
+        Cell.cell_count_label_object = lbl
 
     def left_click_actions(self, event):
         if self.is_mine:
