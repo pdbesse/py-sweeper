@@ -14,7 +14,7 @@ top_frame = Frame(
     width=1440, 
     height=180
 )
-top_frame.place(0,0)
+top_frame.place(x=0,y=0)
 
 #run the rundow
 root.mainloop()
