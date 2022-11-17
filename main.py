@@ -1,6 +1,7 @@
 from tkinter import *
 
 root = Tk()
-root.geomtery('800x800')
+root.geometry('800x800')
 root.title('Py-Sweeper')
+root.resizable(False, False)
 root.mainloop()
