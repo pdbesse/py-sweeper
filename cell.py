@@ -1,6 +1,8 @@
 from tkinter import Button, Label
 import random
 import defs
+import ctypes
+import sys
 
 
 class Cell:
@@ -16,7 +18,7 @@ class Cell:
         self.x = x
         self.y = y
 
-        # Append the object to th Cell.all list
+        # Append the object to the Cell.all list
         Cell.all.append(self)
 
     def create_btn_object(self, location):
@@ -96,6 +98,8 @@ class Cell:
     def show_mine(self):
         # Interrupt the game and display a message that the player lost
         self.cell_btn_object.configure(bg='red')
+        ctypes.windll.user32.MessageBoxW(0, 'You clicked on a mine!', 'Game Over!', 0)
+        sys.exit()
 
     def right_click_actions(self, event):
         if not self.is_mine_candidate:
