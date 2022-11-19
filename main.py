@@ -13,10 +13,24 @@ root.resizable(False, False)
 
 top_frame = Frame(
     root,
-    bg='black', # change later to black
-    width=defs.WIDTH, 
+    bg='black',  # change later to black
+    width=defs.WIDTH,
     height=utils.height_prct(25)
 )
+
+game_title = Label(
+    top_frame,
+    bg='black',
+    fg='white',
+    text='Py-Sweeper',
+    font=('', 48,)
+)
+
+game_title.place(
+    x = utils.width_prct(25),
+    y = 0
+)
+
 top_frame.place(
     x=0,
     y=0
@@ -24,18 +38,18 @@ top_frame.place(
 
 left_frame = Frame(
     root,
-    bg='black', # change later to black
+    bg='black',  # change later to black
     width=utils.width_prct(25),
     height=utils.height_prct(75)
 )
 left_frame.place(
-    x=0, 
+    x=0,
     y=utils.height_prct(25)
 )
 
 center_frame = Frame(
     root,
-    bg='black', # change later to black
+    bg='black',  # change later to black
     width=utils.width_prct(75),
     height=utils.height_prct(75)
 )
@@ -61,5 +75,5 @@ Cell.cell_count_label_object.place(
 Cell.randomize_mines()
 
 
-#run the rundow
+# run the rundow
 root.mainloop()
