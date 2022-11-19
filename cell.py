@@ -103,10 +103,11 @@ class Cell:
                 bg='orange'
             )
             self.is_mine_candidate = True
-        else: 
+        else:
             self.cell_btn_object.configure(
                 bg='SystemButtonFace'
             )
+            self.is_mine_candidate = False
 
     @staticmethod
     def randomize_mines():
