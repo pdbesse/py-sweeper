@@ -92,6 +92,9 @@ class Cell:
                 Cell.cell_count_label_object.configure(
                     text=f'Cells Left:{Cell.cell_count}'
                 )
+            self.cell_btn_object.configure(
+                bg='SystemButtonFace'
+            )
         # Mark cell as opened
         self.is_opened = True
 
